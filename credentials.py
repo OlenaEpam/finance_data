@@ -1,0 +1,2 @@
+USERNAME = 'SA'
+PASSWORD = 'Strong.Pwd-123'
