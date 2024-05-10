@@ -5,6 +5,7 @@ pipeline {
 
         stage('runpy') {
             steps{
+                sh 'pip3 install pytest'
                 sh 'python3 test_file.py'
         }
         }
