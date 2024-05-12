@@ -3,7 +3,7 @@ pipeline {
 
     stages {
 
-        stage('runpy') {
+        stage('Test') {
             steps{
                 sh '''
                 python3 -m venv env
