@@ -15,6 +15,17 @@ pipeline {
                 '''
             }
         }
-
+        stage('Deploy') {
+            steps {
+                sshagent(['jenkins-ssh-key']) {
+                    sh '''
+                        git checkout -b release
+                        git add -A
+                        git commit -m "Release"
+                        git push origin release
+                    '''
+                }
+            }
+        }
     }
 }

@@ -57,3 +57,7 @@ def test_no_nulls_in_last_name(db_connection):
 # added test to show example of commit and pull request for CI_CD task
 def test_template():
     assert True
+
+
+def test_template_2():
+    assert True
