@@ -18,17 +18,20 @@ pipeline {
         stage('Deploy') {
             steps {
                 sshagent(['jenkins-ssh-key']) {
-                    sh '''
-                        git fetch origin develop:develop
-                        if git show-ref --quiet refs/heads/release; then
-                            git clean -fd
-                            git checkout release
-                        else
-                            git checkout -b release
-                        fi
-                        git merge --no-ff develop
-                        git push origin release
-                    '''
+                    withCredentials([string(credentialsId: 'github-pat', variable: 'PAT')]) {
+                        sh '''
+                            git fetch origin develop:develop
+                            if git show-ref --quiet refs/heads/release; then
+                                git clean -fd
+                                git checkout release
+                            else
+                                git checkout -b release
+                            fi
+                            git merge --no-ff develop
+                            git remote set-url origin https://$PAT@github.com/OlenaEpam/finance_data.git
+                            git push origin release
+                        '''
+                    }
                 }
             }
         }
