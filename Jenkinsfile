@@ -29,7 +29,7 @@ pipeline {
                         git add -A
                         if [[ -n $(git status --porcelain) ]]; then
                             git commit -m "Add test results"
-                            git push origin HEAD:main
+                            git push origin HEAD:release
                         fi
                     '''
                 }
