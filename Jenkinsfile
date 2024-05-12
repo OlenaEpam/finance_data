@@ -27,8 +27,10 @@ pipeline {
                         git config --global user.name "OlenaEpam"
                         git config --global user.email "Olena_Pavlyushchik@epam.com"
                         git add -A
-                        git commit -m "Add test results"
-                        git push origin HEAD:main
+                        if [[ -n $(git status --porcelain) ]]; then
+                            git commit -m "Add test results"
+                            git push origin HEAD:main
+                        fi
                     '''
                 }
             }
