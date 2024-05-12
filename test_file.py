@@ -52,3 +52,8 @@ def test_unique_employee_id(db_connection):
 def test_no_nulls_in_last_name(db_connection):
     result = db_connection.execute(text("SELECT COUNT(*) FROM hr.employees WHERE last_name IS NULL")).scalar()
     assert result == 0
+
+
+# added test to show example of commit and pull request for CI_CD task
+def test_template():
+    assert True
