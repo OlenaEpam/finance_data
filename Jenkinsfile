@@ -20,20 +20,5 @@ pipeline {
                 echo 'Deploying...'
             }
         }
-        stage('Push') {
-            steps {
-                sshagent(['jenkins-ssh-key']) {
-                    sh '''
-                        git config --global user.name "OlenaEpam"
-                        git config --global user.email "Olena_Pavlyushchik@epam.com"
-                        git add -A
-                        if [[ -n $(git status --porcelain) ]]; then
-                            git commit -m "Add test results"
-                            git push origin HEAD:release
-                        fi
-                    '''
-                }
-            }
-        }
     }
 }
