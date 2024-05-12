@@ -19,7 +19,7 @@ pipeline {
             steps {
                 sshagent(['jenkins-ssh-key']) {
                     sh '''
-                        git fetch origin --all
+                        git fetch origin
                         if git show-ref --quiet refs/heads/release; then
                             git clean -fd
                             git checkout release
