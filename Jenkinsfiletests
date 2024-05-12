@@ -11,7 +11,7 @@ pipeline {
                 pip install pytest
                 pip install sqlalchemy
                 pip install pyodbc
-                pytest test_file.py
+                pytest test_file_trial_delete.py
                 '''
             }
         }
