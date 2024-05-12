@@ -21,6 +21,7 @@ pipeline {
                     sh '''
                         git fetch origin
                         if git show-ref --quiet refs/heads/release; then
+                            git clean -fd
                             git checkout release
                         else
                             git checkout -b release
