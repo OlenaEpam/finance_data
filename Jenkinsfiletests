@@ -24,6 +24,7 @@ pipeline {
                             if git show-ref --quiet refs/heads/release; then
                                 git clean -fd
                                 git checkout release
+                                git pull origin release
                             else
                                 git checkout -b release
                             fi
