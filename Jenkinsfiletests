@@ -22,15 +22,11 @@ pipeline {
                         sh '''
                             git fetch origin develop:develop
                             if git show-ref --quiet refs/heads/release; then
-                                git clean -fd
-                                git checkout release
-                                git pull --rebase origin release
-                            else
-                                git checkout -b release
+                                git branch -D release
                             fi
-                            git merge --no-ff develop
+                            git checkout -b release develop
                             git remote set-url origin https://$PAT@github.com/OlenaEpam/finance_data.git
-                            git push origin release
+                            git push origin release --force
                         '''
                     }
                 }
