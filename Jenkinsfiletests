@@ -19,9 +19,13 @@ pipeline {
             steps {
                 sshagent(['jenkins-ssh-key']) {
                     sh '''
-                        git checkout -b release
-                        git add -A
-                        git commit -m "Release"
+                        git fetch origin
+                        if git show-ref --quiet refs/heads/release; then
+                            git checkout release
+                        else
+                            git checkout -b release
+                        fi
+                        git merge --no-ff develop
                         git push origin release
                     '''
                 }
