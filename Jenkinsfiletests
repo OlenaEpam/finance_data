@@ -2,7 +2,15 @@ pipeline {
     agent any
 
     stages {
-
+        stage('Check week number') {
+            steps {
+                script {
+                    if (Calendar.instance.get(Calendar.WEEK_OF_YEAR) % 2 == 0) {
+                        currentBuild.result = 'ABORTED'
+                        error('Aborting because this is an even week')
+                    }
+                }
+            }
         stage('Test') {
             steps{
                 sh '''
