@@ -8,3 +8,6 @@ To run tests:
 5. Write credentials of the user - USERNAME and PASSWORD in credentials.py file
 6. Run tests: pip install pytest, pip install sqlalchemy, type 'pytest' in console
 7. To generate report: pip install pytest-html, type pytest --html=report.html
+
+Line is Just for testing pushes 2
+
