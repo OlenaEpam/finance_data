@@ -1,2 +1,2 @@
-USERNAME = 'OlenaPavlyushchik'
-PASSWORD = 'Oredko0808'
+USERNAME = 'SA'
+PASSWORD = 'Strong.Pwd-123'
