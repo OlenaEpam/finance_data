@@ -8,8 +8,9 @@ pipeline {
                 . env/bin/activate
                 pip install pytest
                 pip install sqlalchemy
+                pip install pymssql
                 pip install pyodbc
-                pytest test_file_trial.py
+                pytest test_file.py
                 '''
                 echo 'Python tests have been run.'
             }

@@ -4,11 +4,20 @@ import data_for_tests
 from credentials import USERNAME, PASSWORD
 
 
+# @pytest.fixture(scope="session")
+# def db_connection():
+#     engine = create_engine(
+#         f"mssql+pyodbc://{USERNAME}:{PASSWORD}@127.0.0.1/"
+#         f"TRN?driver=ODBC+Driver+18+for+SQL+Server&charset=utf&autocommit=true&TrustServerCertificate=yes"
+#     )
+#     with engine.connect() as connection:
+#         yield connection
+
+
 @pytest.fixture(scope="session")
 def db_connection():
     engine = create_engine(
-        f"mssql+pyodbc://{USERNAME}:{PASSWORD}@127.0.0.1/"
-        f"TRN?driver=ODBC+Driver+18+for+SQL+Server&charset=utf&autocommit=true&TrustServerCertificate=yes"
+        f"mssql+pymssql://{USERNAME}:{PASSWORD}@127.0.0.1/TRN"
     )
     with engine.connect() as connection:
         yield connection
