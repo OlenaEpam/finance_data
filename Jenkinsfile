@@ -10,7 +10,7 @@ pipeline {
                 pip install sqlalchemy
                 pip install pymssql
                 pip install pyodbc
-                pytest test_file.py
+                pytest test_file_trial.py
                 '''
                 echo 'Python tests have been run.'
             }
